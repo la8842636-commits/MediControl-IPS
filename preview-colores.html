@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centro Médico - Guía Visual de Colores</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .guia-seccion {
+      background-color: var(--color-tarjeta);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .guia-seccion h2 {
+      color: var(--color-principal);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--color-secundario);
+      padding-bottom: 0.5rem;
+    }
+    .color-muestra {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 0.75rem;
+      border: 1px solid #E2E8F0;
+    }
+    .color-cuadro {
+      width: 60px;
+      height: 60px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .color-info {
+      flex: 1;
+    }
+    .color-nombre {
+      font-weight: 600;
+      color: #2D3748;
+    }
+    .color-hex {
+      font-family: monospace;
+      color: #718096;
+      background-color: #F5F7FA;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 0.25rem;
+    }
+    .btn-muestra {
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .layout-preview {
+      display: flex;
+      gap: 0;
+      margin-top: 1rem;
+    }
+    .sidebar-preview {
+      width: 250px;
+      background-color: var(--color-principal);
+      color: #fff;
+      padding: 1.5rem 1rem;
+      height: 300px;
+      flex-shrink: 0;
+    }
+    .contenido-preview {
+      flex: 1;
+      padding: 2rem;
+      background-color: var(--color-fondo);
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="logo">Centro Médico</div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Inicio</a></li>
+          <li>
+            <a href="#">Citas Médicas</a>
+            <ul>
+              <li><a href="#">Gestión</a></li>
+              <li><a href="#">Registrar Cita</a></li>
+              <li><a href="#">Cancelar Cita</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Registro de Pacientes</a></li>
+          <li><a href="#">Registro de Médicos</a></li>
+          <li><a href="#">Registro de Empleados</a></li>
+          <li><a href="#">Registro de Consultorios</a></li>
+          <li><a href="#">Registro de Medicamentos</a></li>
+          <li><a href="#">Registro de Tratamientos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="contenido-principal">
+      <header class="header">
+        <div class="usuario">Recepción / Administración</div>
+        <div class="fecha" id="fecha"></div>
+      </header>
+
+      <h1>Guía Visual - Colores y Componentes</h1>
+
+      <section class="guia-seccion">
+        <h2>Paleta de Colores Institucionales</h2>
+
+        <div class="color-muestra" style="background-color: #1E3A5F;">
+          <div class="color-cuadro" style="background-color: #1E3A5F;"></div>
+          <div class="color-info">
+            <div class="color-nombre">Color Principal</div>
+            <div class="color-hex">#1E3A5F</div>
+          </div>
+        </div>
+
+        <div class="color-muestra" style="background-color: #4299E1;">
+          <div class="color-cuadro" style="background-color: #4299E1;"></div>
+          <div class="color-info">
+            <div class="color-nombre">Color Secundario / Acento</div>
+            <div class="color-hex">#4299E1</div>
+          </div>
+        </div>
+
+        <div class="color-muestra" style="background-color: #F5F7FA;">
+          <div class="color-cuadro" style="background-color: #F5F7FA;"></div>
+          <div class="color-info">
+            <div class="color-nombre">Fondo General</div>
+            <div class="color-hex">#F5F7FA</div>
+          </div>
+        </div>
+
+        <div class="color-muestra" style="background-color: #FFFFFF;">
+          <div class="color-cuadro" style="background-color: #FFFFFF;"></div>
+          <div class="color-info">
+            <div class="color-nombre">Fondo Tarjetas</div>
+            <div class="color-hex">#FFFFFF</div>
+          </div>
+        </div>
+
+        <div class="color-muestra" style="background-color: #276749;">
+          <div class="color-cuadro" style="background-color: #276749;"></div>
+          <div class="color-info">
+            <div class="color-nombre">Éxito</div>
+            <div class="color-hex">#276749</div>
+          </div>
+        </div>
+
+        <div class="color-muestra" style="background-color: #D69E2E;">
+          <div class="color-cuadro" style="background-color: #D69E2E;"></div>
+          <div class="color-info">
+            <div class="color-nombre">Advertencia</div>
+            <div class="color-hex">#D69E2E</div>
+          </div>
+        </div>
+
+        <div class="color-muestra" style="background-color: #C53030;">
+          <div class="color-cuadro" style="background-color: #C53030;"></div>
+          <div class="color-info">
+            <div class="color-nombre">Error</div>
+            <div class="color-hex">#C53030</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="guia-seccion">
+        <h2>Botones</h2>
+        <button class="btn-primario btn-muestra">Btn Primario (#4299E1)</button>
+        <button class="btn-secundario btn-muestra">Btn Secundario</button>
+        <button class="btn-advertencia btn-muestra">Btn Error (#C53030)</button>
+        <button class="btn-editar btn-muestra">Btn Editar</button>
+        <button class="btn-eliminar btn-muestra">Btn Eliminar</button>
+      </section>
+
+      <section class="guia-seccion">
+        <h2>Tarjeta de Métrica</h2>
+        <div class="tarjeta">
+          <h3>Citas del Día</h3>
+          <p class="valor">12</p>
+        </div>
+      </section>
+
+      <section class="guia-seccion">
+        <h2>Formulario y Etiquetas</h2>
+        <div class="formulario">
+          <div class="form-group">
+            <label for="campo-ejemplo">Campo de ejemplo:</label>
+            <input type="text" id="campo-ejemplo" placeholder="Escribir aquí...">
+          </div>
+          <div class="form-group">
+            <label for="select-ejemplo">Seleccionar:</label>
+            <select id="select-ejemplo">
+              <option>Opción 1</option>
+              <option>Opción 2</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="guia-seccion">
+        <h2>Vista Previa del Layout</h2>
+        <div class="layout-preview">
+          <div class="sidebar-preview">
+            <div style="font-weight: bold; font-size: 1.2rem; margin-bottom: 2rem;">Centro Médico</div>
+            <nav>
+              <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 0.75rem;">
+                  <a href="#" style="color: #fff; text-decoration: none; padding: 0.5rem; display: block; border-radius: 4px; background-color: var(--color-secundario);">Inicio</a>
+                </li>
+                <li style="margin-bottom: 0.75rem;">
+                  <a href="#" style="color: #fff; text-decoration: none; padding: 0.5rem; display: block; border-radius: 4px;">Citas Médicas</a>
+                </li>
+                <li style="margin-bottom: 0.75rem;">
+                  <a href="#" style="color: #fff; text-decoration: none; padding: 0.5rem; display: block; border-radius: 4px;">Registro de Pacientes</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="contenido-preview">
+            <h2>Área Principal</h2>
+            <p>Este es el área de contenido con fondo general #F5F7FA.</p>
+            <div class="accesos-rapidos">
+              <button class="btn-primario">Registrar Cita</button>
+              <button class="btn-secundario">Registrar Paciente</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="guia-seccion">
+        <h2>Tipografía</h2>
+        <p style="font-family: Arial, sans-serif; font-size: 16px;">Texto base: Arial, 16px</p>
+        <p style="font-family: Arial, sans-serif; font-size: 14px; color: #718096;">Texto secundario: 14px, gris</p>
+        <p style="font-family: Arial, sans-serif; font-weight: 600; color: #2D3748;">Etiqueta de formulario: negrita</p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('fecha').textContent = new Date().toLocaleDateString('es-ES', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  </script>
+</body>
+</html>

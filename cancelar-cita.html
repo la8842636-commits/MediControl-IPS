@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediControl IPS - Cancelar Cita</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="logo-container">
+        <svg class="logo-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo MediControl IPS">
+          <rect width="32" height="32" rx="8" fill="#1E3A5F"/>
+          <path d="M16 8L20 16L12 16Z" fill="#FFFFFF"/>
+          <path d="M16 12L16 20" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+          <text x="16" y="28" font-family="Arial" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">MC</text>
+        </svg>
+        <span class="logo-texto">MediControl IPS</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="menu-opcion">Inicio</a></li>
+          <li>
+            <a href="#" class="menu-opcion">Citas Médicas</a>
+            <ul class="submenu">
+              <li><a href="citas.html" class="menu-opcion">Gestión</a></li>
+              <li><a href="registrar-cita.html" class="menu-opcion">Registrar Cita</a></li>
+              <li><a href="cancelar-cita.html" class="menu-opcion activa">Cancelar Cita</a></li>
+            </ul>
+          </li>
+          <li><a href="registrar-paciente.html" class="menu-opcion">Registro de Pacientes</a></li>
+          <li><a href="registrar-medico.html" class="menu-opcion">Registro de Médicos</a></li>
+          <li><a href="registrar-empleado.html" class="menu-opcion">Registro de Empleados</a></li>
+          <li><a href="registrar-consultorio.html" class="menu-opcion">Registro de Consultorios</a></li>
+          <li><a href="registrar-medicamento.html" class="menu-opcion">Registro de Medicamentos</a></li>
+          <li><a href="registrar-tratamiento.html" class="menu-opcion">Registro de Tratamientos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="contenido-principal">
+      <header class="header">
+        <div class="marca">
+          <svg class="logo-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo MediControl IPS">
+            <rect width="24" height="24" rx="6" fill="#1E3A5F"/>
+            <path d="M12 6L16 12L8 12Z" fill="#FFFFFF"/>
+            <path d="M12 9L12 15" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>MediControl IPS</span>
+        </div>
+        <div class="usuario">Recepción / Administración</div>
+        <div class="fecha" id="fecha"></div>
+        <div class="controles-acceso">
+          <button class="btn-accesibilidad" id="btn-aumentar" title="Aumentar tamaño de texto (A+)">A+</button>
+          <button class="btn-accesibilidad" id="btn-disminuir" title="Reducir tamaño de texto (A-)">A-</button>
+        </div>
+      </header>
+
+      <h1>Cancelar Cita Médica</h1>
+
+      <div class="formulario">
+        <form id="form-cancelar-cita">
+          <div class="form-group">
+            <label for="documento-buscar">Número de documento del paciente:<span class="asterisco-requerido">*</span></label>
+            <input type="text" id="documento-buscar" name="documento-buscar" placeholder="Ej: 12345678" required>
+          </div>
+          <div class="form-group">
+            <label for="motivo-cancelacion">Motivo de la cancelación:<span class="asterisco-requerido">*</span></label>
+            <textarea id="motivo-cancelacion" name="motivo-cancelacion" rows="4" placeholder="Describa el motivo de la cancelación" required></textarea>
+          </div>
+          <div class="form-acciones">
+            <button type="submit" class="btn-advertencia">Confirmar Cancelación</button>
+            <button type="button" class="btn-secundario" onclick="location.href='citas.html'">Volver</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal" id="modal-confirmacion">
+        <div class="modal-contenido">
+          <div class="modal-exito-icon" style="color:var(--color-error);">!</div>
+          <div class="modal-mensaje">¿Confirma la cancelación de la cita?</div>
+          <div class="modal-acciones">
+            <button class="btn-advertencia" onclick="confirmarCancelacion()">Sí, Cancelar</button>
+            <button class="btn-secundario" onclick="cerrarModal()">No, Volver</button>
+          </div>
+        </div>
+      </div>
+
+      <footer class="pie-pagina"><p>MediControl IPS &copy; 2026 - Sistema de Gestión Médica | SENA ADSO</p></footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('fecha').textContent = new Date().toLocaleDateString('es-ES', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    const btnAumentar = document.getElementById('btn-aumentar');
+    const btnDisminuir = document.getElementById('btn-disminuir');
+
+    btnAumentar.addEventListener('click', function() {
+      document.body.classList.remove('font-size-disminuido');
+      document.body.classList.add('font-size-aumentado');
+    });
+
+    btnDisminuir.addEventListener('click', function() {
+      document.body.classList.remove('font-size-aumentado');
+      document.body.classList.add('font-size-disminuido');
+    });
+
+    const modal = document.getElementById('modal-confirmacion');
+
+    function cerrarModal() {
+      modal.classList.remove('activo');
+    }
+
+    function confirmarCancelacion() {
+      const motivo = document.getElementById('motivo-cancelacion').value.trim();
+      if (!motivo) {
+        alert('Debe ingresar un motivo de cancelación');
+        return;
+      }
+      alert('La cita ha sido cancelada exitosamente.');
+      modal.classList.remove('activo');
+      location.href = 'citas.html';
+    }
+
+    document.getElementById('form-cancelar-cita').addEventListener('submit', function(e) {
+      e.preventDefault();
+      modal.classList.add('activo');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediControl IPS - Registrar Cita</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="logo-container">
+        <svg class="logo-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo MediControl IPS">
+          <rect width="32" height="32" rx="8" fill="#1E3A5F"/>
+          <path d="M16 8L20 16L12 16Z" fill="#FFFFFF"/>
+          <path d="M16 12L16 20" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+          <text x="16" y="28" font-family="Arial" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">MC</text>
+        </svg>
+        <span class="logo-texto">MediControl IPS</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="menu-opcion">Inicio</a></li>
+          <li>
+            <a href="#" class="menu-opcion">Citas Médicas</a>
+            <ul class="submenu">
+              <li><a href="citas.html" class="menu-opcion">Gestión</a></li>
+              <li><a href="registrar-cita.html" class="menu-opcion activa">Registrar Cita</a></li>
+              <li><a href="cancelar-cita.html" class="menu-opcion">Cancelar Cita</a></li>
+            </ul>
+          </li>
+          <li><a href="registrar-paciente.html" class="menu-opcion">Registro de Pacientes</a></li>
+          <li><a href="registrar-medico.html" class="menu-opcion">Registro de Médicos</a></li>
+          <li><a href="registrar-empleado.html" class="menu-opcion">Registro de Empleados</a></li>
+          <li><a href="registrar-consultorio.html" class="menu-opcion">Registro de Consultorios</a></li>
+          <li><a href="registrar-medicamento.html" class="menu-opcion">Registro de Medicamentos</a></li>
+          <li><a href="registrar-tratamiento.html" class="menu-opcion">Registro de Tratamientos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="contenido-principal">
+      <header class="header">
+        <div class="marca">
+          <svg class="logo-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo MediControl IPS">
+            <rect width="24" height="24" rx="6" fill="#1E3A5F"/>
+            <path d="M12 6L16 12L8 12Z" fill="#FFFFFF"/>
+            <path d="M12 9L12 15" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>MediControl IPS</span>
+        </div>
+        <div class="usuario">Recepción / Administración</div>
+        <div class="fecha" id="fecha"></div>
+        <div class="controles-acceso">
+          <button class="btn-accesibilidad" id="btn-aumentar" title="Aumentar tamaño de texto (A+)">A+</button>
+          <button class="btn-accesibilidad" id="btn-disminuir" title="Reducir tamaño de texto (A-)">A-</button>
+        </div>
+      </header>
+
+      <h1>Registrar Nueva Cita Médica</h1>
+
+      <div class="formulario">
+        <form id="form-registrar-cita" novalidate>
+          <div class="form-group">
+            <label for="paciente">Paciente (documento)<span class="asterisco-requerido">*</span></label>
+            <select id="paciente" name="paciente" required>
+              <option value="">Seleccionar paciente</option>
+              <option value="12345678">Juan Pérez García - 12345678</option>
+              <option value="87654321">Ana Rodríguez Silva - 87654321</option>
+              <option value="11223344">Luis Fernández Ruiz - 11223344</option>
+              <option value="55667788">Carmen Gómez Díaz - 55667788</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="medico">Médico:<span class="asterisco-requerido">*</span></label>
+            <select id="medico" name="medico" required>
+              <option value="">Seleccionar médico</option>
+              <option value="Dra. María López">Dra. María López</option>
+              <option value="Dr. Carlos Méndez">Dr. Carlos Méndez</option>
+              <option value="Dra. Elena Castro">Dra. Elena Castro</option>
+              <option value="Dr. Roberto Vargas">Dr. Roberto Vargas</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="consultorio">Consultorio:<span class="asterisco-requerido">*</span></label>
+            <select id="consultorio" name="consultorio" required>
+              <option value="">Seleccionar consultorio</option>
+              <option value="Consultorio 101">Consultorio 101</option>
+              <option value="Consultorio 102">Consultorio 102</option>
+              <option value="Consultorio 103">Consultorio 103</option>
+              <option value="Consultorio 104">Consultorio 104</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fecha">Fecha:<span class="asterisco-requerido">*</span></label>
+            <input type="date" id="fecha" name="fecha" required>
+          </div>
+          <div class="form-group">
+            <label for="hora">Hora:<span class="asterisco-requerido">*</span></label>
+            <input type="time" id="hora" name="hora" required>
+          </div>
+          <div class="form-group">
+            <label for="motivo">Motivo de consulta:<span class="asterisco-requerido">*</span></label>
+            <textarea id="motivo" name="motivo" rows="4" required></textarea>
+          </div>
+          <div class="form-acciones">
+            <button type="submit" class="btn-primario">Guardar Cita</button>
+            <button type="button" class="btn-secundario" onclick="location.href='citas.html'">Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal" id="modal-exito">
+        <div class="modal-contenido">
+          <div class="modal-exito-icon">✓</div>
+          <div class="modal-mensaje">¡Cita registrada con éxito!</div>
+          <div class="modal-acciones">
+            <button class="btn-primario" onclick="imprimirComprobante()">🖨️ Imprimir Comprobante de Cita</button>
+            <button class="btn-secundario" onclick="location.href='citas.html'">Aceptar</button>
+          </div>
+        </div>
+      </div>
+
+      <footer class="pie-pagina"><p>MediControl IPS &copy; 2026 - Sistema de Gestión Médica | SENA ADSO</p></footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('fecha').textContent = new Date().toLocaleDateString('es-ES', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    const btnAumentar = document.getElementById('btn-aumentar');
+    const btnDisminuir = document.getElementById('btn-disminuir');
+
+    btnAumentar.addEventListener('click', function() {
+      document.body.classList.remove('font-size-disminuido');
+      document.body.classList.add('font-size-aumentado');
+    });
+
+    btnDisminuir.addEventListener('click', function() {
+      document.body.classList.remove('font-size-aumentado');
+      document.body.classList.add('font-size-disminuido');
+    });
+
+    const fechaInput = document.getElementById('fecha');
+    const hoy = new Date().toISOString().split('T')[0];
+    fechaInput.setAttribute('min', hoy);
+
+    const form = document.getElementById('form-registrar-cita');
+    const inputs = form.querySelectorAll('select, input, textarea');
+
+    inputs.forEach(input => {
+      input.addEventListener('blur', function() {
+        if (this.value.trim() === '' || this.value === '') {
+          this.classList.add('invalido');
+          this.classList.remove('valido');
+        } else {
+          this.classList.remove('invalido');
+          this.classList.add('valido');
+        }
+      });
+
+      input.addEventListener('input', function() {
+        if (this.checkValidity() && this.value.trim() !== '') {
+          this.classList.remove('invalido');
+          this.classList.add('valido');
+        } else if (this.value.trim() !== '') {
+          this.classList.add('invalido');
+          this.classList.remove('valido');
+        }
+      });
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let valido = true;
+      inputs.forEach(input => {
+        if (!input.checkValidity() || input.value.trim() === '') {
+          input.classList.add('invalido');
+          input.classList.remove('valido');
+          valido = false;
+        } else {
+          input.classList.remove('invalido');
+          input.classList.add('valido');
+        }
+      });
+      if (valido) {
+        document.getElementById('modal-exito').classList.add('activo');
+      }
+    });
+
+    function imprimirComprobante() {
+      window.print();
+    }
+  </script>
+</body>
+</html>

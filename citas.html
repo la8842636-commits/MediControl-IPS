@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediControl IPS - Gestión de Citas</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="logo-container">
+        <svg class="logo-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo MediControl IPS">
+          <rect width="32" height="32" rx="8" fill="#1E3A5F"/>
+          <path d="M16 8L20 16L12 16Z" fill="#FFFFFF"/>
+          <path d="M16 12L16 20" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+          <text x="16" y="28" font-family="Arial" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">MC</text>
+        </svg>
+        <span class="logo-texto">MediControl IPS</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="menu-opcion">Inicio</a></li>
+          <li>
+            <a href="#" class="menu-opcion">Citas Médicas</a>
+            <ul class="submenu">
+              <li><a href="citas.html" class="menu-opcion activa">Gestión</a></li>
+              <li><a href="registrar-cita.html" class="menu-opcion">Registrar Cita</a></li>
+              <li><a href="cancelar-cita.html" class="menu-opcion">Cancelar Cita</a></li>
+            </ul>
+          </li>
+          <li><a href="registrar-paciente.html" class="menu-opcion">Registro de Pacientes</a></li>
+          <li><a href="registrar-medico.html" class="menu-opcion">Registro de Médicos</a></li>
+          <li><a href="registrar-empleado.html" class="menu-opcion">Registro de Empleados</a></li>
+          <li><a href="registrar-consultorio.html" class="menu-opcion">Registro de Consultorios</a></li>
+          <li><a href="registrar-medicamento.html" class="menu-opcion">Registro de Medicamentos</a></li>
+          <li><a href="registrar-tratamiento.html" class="menu-opcion">Registro de Tratamientos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="contenido-principal">
+      <header class="header">
+        <div class="marca">
+          <svg class="logo-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo MediControl IPS">
+            <rect width="24" height="24" rx="6" fill="#1E3A5F"/>
+            <path d="M12 6L16 12L8 12Z" fill="#FFFFFF"/>
+            <path d="M12 9L12 15" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>MediControl IPS</span>
+        </div>
+        <div class="usuario">Recepción / Administración</div>
+        <div class="fecha" id="fecha"></div>
+        <div class="controles-acceso">
+          <button class="btn-accesibilidad" id="btn-aumentar" title="Aumentar tamaño de texto (A+)">A+</button>
+          <button class="btn-accesibilidad" id="btn-disminuir" title="Reducir tamaño de texto (A-)">A-</button>
+        </div>
+      </header>
+
+      <h1>Gestión de Citas Médicas</h1>
+
+      <div class="filtro-busqueda">
+        <label for="busqueda-documento">Buscar por documento del paciente:</label>
+        <input type="text" id="busqueda-documento" placeholder="Número de documento">
+      </div>
+
+      <button class="btn-primario" onclick="location.href='registrar-cita.html'">+ Registrar Nueva Cita</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Paciente</th>
+            <th>Médico</th>
+            <th>Consultorio</th>
+            <th>Fecha / Hora</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpo-tabla">
+          <tr>
+            <td>C-001</td>
+            <td>Juan Pérez García</td>
+            <td>Dra. María López</td>
+            <td>Consultorio 101</td>
+            <td>22/11/2026 09:00</td>
+            <td><span class="badge badge-confirmada">Confirmada</span></td>
+            <td class="acciones">
+              <button class="btn-editar">Editar</button>
+              <button class="btn-eliminar">Cancelar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>C-002</td>
+            <td>Ana Rodríguez Silva</td>
+            <td>Dr. Carlos Méndez</td>
+            <td>Consultorio 102</td>
+            <td>22/11/2026 10:30</td>
+            <td><span class="badge badge-espera">En Espera</span></td>
+            <td class="acciones">
+              <button class="btn-editar">Editar</button>
+              <button class="btn-eliminar">Cancelar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>C-003</td>
+            <td>Luis Fernández Ruiz</td>
+            <td>Dra. Elena Castro</td>
+            <td>Consultorio 103</td>
+            <td>22/11/2026 11:00</td>
+            <td><span class="badge badge-espera">En Espera</span></td>
+            <td class="acciones">
+              <button class="btn-editar">Editar</button>
+              <button class="btn-eliminar">Cancelar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>C-004</td>
+            <td>Carmen Gómez Díaz</td>
+            <td>Dr. Roberto Vargas</td>
+            <td>Consultorio 101</td>
+            <td>22/11/2026 14:00</td>
+            <td><span class="badge badge-cancelada">Cancelada</span></td>
+            <td class="acciones">
+              <button class="btn-editar">Editar</button>
+              <button class="btn-eliminar">Cancelar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <footer class="pie-pagina"><p>MediControl IPS &copy; 2026 - Sistema de Gestión Médica | SENA ADSO</p></footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('fecha').textContent = new Date().toLocaleDateString('es-ES', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    const btnAumentar = document.getElementById('btn-aumentar');
+    const btnDisminuir = document.getElementById('btn-disminuir');
+
+    btnAumentar.addEventListener('click', function() {
+      document.body.classList.remove('font-size-disminuido');
+      document.body.classList.add('font-size-aumentado');
+    });
+
+    btnDisminuir.addEventListener('click', function() {
+      document.body.classList.remove('font-size-aumentado');
+      document.body.classList.add('font-size-disminuido');
+    });
+  </script>
+</body>
+</html>
